@@ -1,0 +1,6 @@
+﻿  Collision.cpp
+C:\Users\Simon-Strand\source\repos\SFML-Home-Project\SFML_HomeComp\Collision.cpp(78,30): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\Simon-Strand\source\repos\SFML-Home-Project\SFML_HomeComp\Collision.cpp(86,29): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\Simon-Strand\source\repos\SFML-Home-Project\SFML_HomeComp\Collision.cpp(93,30): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\Simon-Strand\source\repos\SFML-Home-Project\SFML_HomeComp\Collision.cpp(100,29): warning C4305: 'argument': truncation from 'double' to 'float'
+  SFML_HomeComp.vcxproj -> C:\Users\Simon-Strand\source\repos\SFML-Home-Project\x64\Debug\SFML_HomeComp.exe

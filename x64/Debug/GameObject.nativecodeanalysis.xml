@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\Simon-Strand\source\repos\SFML-Home-Project\SFML_HomeComp\</FILEPATH>
+      <FILENAME>GameObject.cpp</FILENAME>
+      <LINE>3</LINE>
+      <COLUMN>12</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'GameObject::wannaDraw' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>GameObject::{ctor}</FUNCTION>
+    <DECORATED>??0GameObject@@QEAA@XZ</DECORATED>
+    <FUNCLINE>3</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>GameObject::wannaDraw</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\Simon-Strand\source\repos\SFML-Home-Project\SFML_HomeComp\</FILEPATH>
+      <FILENAME>GameObject.cpp</FILENAME>
+      <LINE>3</LINE>
+      <COLUMN>12</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'GameObject::yPos' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>GameObject::{ctor}</FUNCTION>
+    <DECORATED>??0GameObject@@QEAA@XZ</DECORATED>
+    <FUNCLINE>3</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>GameObject::yPos</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\Simon-Strand\source\repos\SFML-Home-Project\SFML_HomeComp\</FILEPATH>
+      <FILENAME>GameObject.cpp</FILENAME>
+      <LINE>3</LINE>
+      <COLUMN>12</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'GameObject::height' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>GameObject::{ctor}</FUNCTION>
+    <DECORATED>??0GameObject@@QEAA@XZ</DECORATED>
+    <FUNCLINE>3</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>GameObject::height</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\Simon-Strand\source\repos\SFML-Home-Project\SFML_HomeComp\</FILEPATH>
+      <FILENAME>GameObject.cpp</FILENAME>
+      <LINE>3</LINE>
+      <COLUMN>12</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'GameObject::width' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>GameObject::{ctor}</FUNCTION>
+    <DECORATED>??0GameObject@@QEAA@XZ</DECORATED>
+    <FUNCLINE>3</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>GameObject::width</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\Simon-Strand\source\repos\SFML-Home-Project\SFML_HomeComp\</FILEPATH>
+      <FILENAME>GameObject.cpp</FILENAME>
+      <LINE>3</LINE>
+      <COLUMN>12</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'GameObject::xPos' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>GameObject::{ctor}</FUNCTION>
+    <DECORATED>??0GameObject@@QEAA@XZ</DECORATED>
+    <FUNCLINE>3</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>GameObject::xPos</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+</DEFECTS>

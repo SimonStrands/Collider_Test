@@ -1,145 +1,147 @@
 #include "GameObject.h"
-#include "Animation.h"
-#include <vector>
 
-GameObject::GameObject() {
-	collider = false;
-	xPos = 0.0f;
-	yPos = 0.0f;
-	scales = 1.0f;
-	sizeX = 32.0f;
-	sizeY = 32.0f;
-	offsetX = 0.0f;
-	offsetY = 0.0f;
-	rotation = 0;
-	howMany = 1;
-	weight = 50.0f;
-	width = 64;
-	height = 64;
 
-	sf::RectangleShape rec;
+
+GameObject::GameObject(float xPos, float yPos, std::string spriteFile, float height, float width)
+{
+	this->wannaDraw = true;
+	this->xPos = xPos;
+	this->yPos = yPos;
+	this->texture.loadFromFile(spriteFile);
+	this->sprite.setTexture(texture);
+	this->sprite.setPosition(xPos, yPos);
+	this->type = "none";
+	this->weight = 0;
+	int temp = 0;
+	if (height == -1) {
+		this->height = sprite.getGlobalBounds().width;
+	}
+	else {
+		this->height = height;
+		temp++;
+	}
+	if (width == -1) {
+		this->width = sprite.getGlobalBounds().height;
+	}
+	else {
+		this->width = width;
+		temp++;
+	}
+	if (temp >= 2) {
+		setSizeOfSpritePX(width, height);
+	}
 	
 
 }
 
-void GameObject::rotate(int rotateion)
+GameObject::~GameObject()
 {
+}
+
+void GameObject::addPosition(float xVel, float yVel)
+{
+	this->xPos += xVel;
+	this->yPos += yVel;
+	this->sprite.setPosition(xPos, yPos);
 
 }
 
-
-void GameObject::scale(float scales)
+void GameObject::addPositionX(float Vel)
 {
-	//this->scale += scales;
+	this->xPos += Vel;
+	this->sprite.setPosition(xPos, yPos);
 }
 
-void GameObject::setWidth(float width)
+void GameObject::addPositionY(float Vel)
 {
-	this->width = width;
+	this->yPos += Vel;
+	this->sprite.setPosition(xPos, yPos);
 }
 
-float GameObject::getWidth() const
+void GameObject::setPostion(float xPos, float yPos)
 {
-	return this->width;
+	this->xPos = xPos;
+	this->yPos = yPos;
+	this->sprite.setPosition(xPos, yPos);
 }
 
-void GameObject::setHeight(float height)
+void GameObject::setScaleOfSprite(float scale)
 {
-	this->height = height;
+	this->sprite.setScale(scale,scale);
 }
 
-float GameObject::getHeight() const
+void GameObject::setSizeOfSpritePX(float width, float height)
 {
-	return this->height;
+	float scaleHeight;
+	float scaleWidth;
+	if (width != -1) {
+		scaleWidth = width / sprite.getGlobalBounds().width;
+	}
+	else {
+		scaleWidth = 1;
+	}
+	if (height != -1) {
+		scaleHeight = height / sprite.getGlobalBounds().height;
+	}
+	else {
+		scaleHeight = 1;
+	}
+	
+
+	this->sprite.setScale(scaleWidth, scaleHeight);
 }
 
-float GameObject::getObjDown()const
+void GameObject::changeWannaDraw(bool wannaDraw)
 {
-	return yPos + height;
+	this->wannaDraw = wannaDraw;
 }
 
-float GameObject::getObjUpper()const
+sf::FloatRect GameObject::getBounds() const
 {
-	return yPos;
+	return this->sprite.getGlobalBounds();
 }
 
-float GameObject::getObjLeft()const
+float GameObject::getTop() const
 {
-	return xPos;
+	return sprite.getGlobalBounds().top;
 }
 
-float GameObject::getObjRight()const
+float GameObject::getBot() const
 {
-	return xPos + width;
+	return sprite.getGlobalBounds().top + this->height;
 }
 
+float GameObject::getLeft() const
+{
+	return sprite.getGlobalBounds().left;
+}
 
+float GameObject::getRight() const
+{
+	return sprite.getGlobalBounds().left + width;
+}
 
-float GameObject::getWeight()const
+std::string GameObject::getType() const
+{
+	return this->type;
+}
+
+int GameObject::getWeight() const
 {
 	return this->weight;
 }
 
-void GameObject::setWeight(float weight)
+void GameObject::changeWeight(int weight)
 {
 	this->weight = weight;
 }
 
-void GameObject::move(float x_Pos, float y_Pos)
+void GameObject::changeType(std::string type)
 {
-	xPos = x_Pos;
-	yPos = y_Pos;
-
-}
-void GameObject::addVelocity(float xVel, float yVel)
-{
-	velocity.x += xVel;
-	velocity.y += yVel;
-	xPos += velocity.x * 200;
-	yPos += velocity.y * 200;
-}
-void GameObject::setVelocity(float xVel, float yVel)
-{
-	
-	velocity.x = xVel;
-	velocity.y = yVel;
-	xPos += velocity.x * 200;
-	yPos += velocity.y * 200;
-	
+	this->type = type;
 }
 
-sf::Vector2f GameObject::getVelocity() const
+void GameObject::draw(sf::RenderTarget & target, sf::RenderStates states) const
 {
-	return sf::Vector2f(velocity.x, velocity.y);
+	target.draw(this->sprite);
 }
-
-void GameObject::setTexture(sf::Texture& Tex, sf::RenderWindow& window) {
-	sf::Sprite sprite(Tex);
-	sprite.setPosition(xPos + offsetX, yPos + offsetY);
-	sprite.scale(sizeX, sizeY);
-	window.draw(sprite);
-}
-
-void GameObject::setAnimation(sf::Texture& Tex, sf::RenderWindow& window, double deltaTime)
-{
-	sf::Sprite sprite(Tex);
-	sprite.setPosition(xPos, yPos);
-	sprite.scale(sizeX, sizeY);
-	this->anim.howMany = howMany;
-	this->anim.scale = scales;
-	this->anim.animate(window, Tex, deltaTime, 0.1, xPos, yPos, offsetX, offsetY);
-}
-
-void GameObject::writeWhereTheyAre(sf::RenderWindow &window)
-{
-	rec.setPosition(this->xPos, this->yPos);
-	rec.setSize(sf::Vector2f(width, height));
-	rec.setFillColor(sf::Color::Green);
-	window.draw(this->rec);
-}
-
-sf::Vector2f GameObject::getPosition()
-{
-	return sf::Vector2f(xPos, yPos);
-}
-
